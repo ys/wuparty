@@ -323,6 +323,13 @@ class WuParty
       options = {:query => options} if options.any?
       @party.get("forms/#{@id}/comments", options)['Comments']
     end
+    
+    # Returns entries' count details for the form.
+    # See Wufoo API documentation for possible options
+    def count(options={})
+      options = {:query => options} if options.any?
+      @party.get("forms/#{@id}/entries/count", options)['EntryCount']
+    end
   end
 
   # Wraps an individual Wufoo Report.
